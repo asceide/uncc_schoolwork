@@ -1,0 +1,47 @@
+I believe that the problem with this code is that there is a race condition when updating the
+d_histgram array.
+There are 26 characters in the alphabet and there are at most (length) amounts of i values.
+There is a very high chance that any given time two threads may access the same position in the d_histgram array at the same time and thus create a race condition.
+
+Alternatively, if the race condition were to be avoided, the atomicinc() function or the atomicadd() with a +1 parameter can be used as this will also avoid the race condition.
+Alternatively I think you could declare a __shared__ array to be used within the time of the block
+and add a __syncthreads() call. 
+
+The question did not ask to update the code so I am assuming that there is no need as it is not within the scope of the question being explicitly asked.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is wrong in the following kernel function (owner-computes rule)?
+
+__global__ void cuda_histogram1(char *d_data, int length, int *d_histgram){
+
+        int i = blockIdx.x * blockDim.x + threadIdx.x;
+
+        if (i < length){
+
+               int alphabet_position = d_data[i] - 'a';
+
+               if (alphabet_position >= 0 && alphabet_position < 26){
+
+                      d_histgram[(int)(alphabet_position/4)]++;
+
+               }
+
+        }
+
+}
+
+ 
+
+Hint: d_histgram is a memory shared among threads in device. 

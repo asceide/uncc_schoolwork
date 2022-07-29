@@ -1,0 +1,2 @@
+I couldn't seem to get the ${threadIDx.x} portion of the code to work so I just added the normal code. I noticed that the blocks may run in a random order, but the threads always ran in order. Using the 
+dim3 grid(x,y,z) and dim3 block(x,y,z) structures, I was able to specify the dimensions of the blocks.

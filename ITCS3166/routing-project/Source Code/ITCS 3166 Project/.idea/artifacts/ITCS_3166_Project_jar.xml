@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ITCS 3166 Project:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ITCS_3166_Project_jar</output-path>
+    <root id="archive" name="ITCS 3166 Project.jar">
+      <element id="module-output" name="ITCS 3166 Project" />
+    </root>
+  </artifact>
+</component>
